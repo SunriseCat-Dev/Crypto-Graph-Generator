@@ -5,7 +5,7 @@ from typing import List, Tuple, Optional
 
 # Made by SunriseCat_Dev
 # Ver 0.1
-# Link: 
+# Link: https://github.com/SunriseCat-Dev
 
 
 class CryptoChartGenerator:
