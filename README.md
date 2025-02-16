@@ -15,24 +15,25 @@
 ## Установка ⚙️
 
 1. Клонируйте репозиторий:
-   
+   ```
    git clone https://github.com/SunriseCat-Dev/crypto-chart-generator.git
-
+   ```
 2. Установите зависимости:
+   ```
    pip install -r requirements.txt
-
+   ```
 ## Использование 🛠️
-    # Минимальный пример:
-
+    ### Минимальный пример:
+        ```
         from Graph import CryptoChartGenerator
 
         chart = CryptoChartGenerator()
         result = chart.generate_chart("background.jpg")
         with open("chart.png", "wb") as f:
             f.write(result.getvalue())
-
-    # Расширенная настройка:
-
+        ```
+    ### Расширенная настройка:
+        ```
         chart = CryptoChartGenerator(
             padding=80,
             bull_color=(76, 175, 80),    # Зеленый для роста
@@ -53,5 +54,6 @@
             data=custom_data,
             output_format="JPEG"
         )
+        ```
 
-Разработано с ❤️ SunriseCat_Dev |
+Разработано с ❤️ [SunriseCat_Dev](https://github.com/SunriseCat-Dev) | [LICENSE]()
