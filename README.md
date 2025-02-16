@@ -22,7 +22,7 @@
    pip install -r requirements.txt
 
 ## Использование 🛠️
-    Минимальный пример:
+    # Минимальный пример:
 
         from Graph import CryptoChartGenerator
 
@@ -31,7 +31,7 @@
         with open("chart.png", "wb") as f:
             f.write(result.getvalue())
 
-    Расширенная настройка:
+    # Расширенная настройка:
 
         chart = CryptoChartGenerator(
             padding=80,
