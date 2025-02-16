@@ -53,4 +53,4 @@
             output_format="JPEG"
         )
 
-Разработано с ❤️ SunriseCat_Dev | Лицензия MIT
+Разработано с ❤️ SunriseCat_Dev |
