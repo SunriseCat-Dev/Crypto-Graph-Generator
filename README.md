@@ -30,6 +30,7 @@
         result = chart.generate_chart("background.jpg")
         with open("chart.png", "wb") as f:
             f.write(result.getvalue())
+
     Расширенная настройка:
 
         chart = CryptoChartGenerator(
