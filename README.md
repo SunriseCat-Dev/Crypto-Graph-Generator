@@ -56,4 +56,4 @@
     )
 ```
 
-**Разработано с ❤️ [SunriseCat_Dev](https://github.com/SunriseCat-Dev) | [LICENSE MIT](https://github.com/SunriseCat-Dev/Graph_Draw/blob/main/LICENSE)**
+**Разработано с ❤️ [SunriseCat_Dev](https://github.com/SunriseCat-Dev) для $AgentPi| [LICENSE MIT](https://github.com/SunriseCat-Dev/Graph_Draw/blob/main/LICENSE)**
