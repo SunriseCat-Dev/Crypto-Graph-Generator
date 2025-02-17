@@ -155,34 +155,38 @@ class CryptoChartGenerator:
                       chart_width: int,
                       height: int,
                       y_scale: float):
-        """Рисует свечи"""
         candle_width = chart_width / len(data) * self.candle_width_ratio
 
         for idx, (o, h, l, c) in enumerate(data):
+            if o == c and h == l:
+                continue  # Пропуск неизмененных свечей
+
             x_center = self.padding + (idx + 0.5) * (chart_width / len(data))
             color = self.bull_color if c >= o else self.bear_color
 
-            # Фитиль
-            y_high = height - self.padding - (h - min_val) * y_scale
-            y_low = height - self.padding - (l - min_val) * y_scale
-            draw.line([(x_center, y_high), (x_center, y_low)], fill=color, width=self.wick_width)
+            # Фитиль (только если high != low)
+            if h != l:
+                y_high = height - self.padding - (h - min_val) * y_scale
+                y_low = height - self.padding - (l - min_val) * y_scale
+                draw.line([(x_center, y_high), (x_center, y_low)], fill=color, width=self.wick_width)
 
-            # Тело свечи
-            y_open = height - self.padding - (o - min_val) * y_scale
-            y_close = height - self.padding - (c - min_val) * y_scale
-            body_top = min(y_open, y_close)
-            body_height = abs(y_open - y_close) or 1
+            # Тело свечи (только если open != close)
+            if o != c:
+                y_open = height - self.padding - (o - min_val) * y_scale
+                y_close = height - self.padding - (c - min_val) * y_scale
+                body_top = min(y_open, y_close)
+                body_height = abs(y_open - y_close)
 
-            draw.rounded_rectangle(
-                [
-                    (x_center - candle_width/2, body_top),
-                    (x_center + candle_width/2, body_top + body_height)
-                ],
-                radius=1,
-                fill=color,
-                outline=(255, 255, 255, 50),
-                width=1
-            )
+                draw.rounded_rectangle(
+                    [
+                        (x_center - candle_width/2, body_top),
+                        (x_center + candle_width/2, body_top + body_height)
+                    ],
+                    radius=1,
+                    fill=color,
+                    outline=(255, 255, 255, 50),
+                    width=1
+                )
 
     def _draw_labels(self, draw: ImageDraw.Draw):
         """Рисует текстовые метки на графике
